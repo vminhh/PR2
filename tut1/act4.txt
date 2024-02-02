@@ -1,0 +1,8 @@
+a. The program will still work without any issue
+   Because because the double data type is capable of holding decimal values
+   And Java can able to perform implicit type conversion from double to double.
+
+
+b. It will result in a compilation error
+   Beacause the int data type cannot hold decimal values
+   We can use explicit type casting to convert double value to int: int principal = (int) 17000.0;

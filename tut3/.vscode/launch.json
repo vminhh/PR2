@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Java Debug",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "tut3.JavaParserTest",
+            "projectName": "tut3",
+            "args": "",
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "vmArgs": "-cp .;javaparser-core-3.0.1.jar",
+            "preLaunchTask": "javac"
+        }
+    ]
+}
