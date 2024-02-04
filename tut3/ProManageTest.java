@@ -7,5 +7,11 @@ public class ProManageTest {
         goods1.promtDetails();
         goods1.displayDetails();
         goods1.closeScanner();
+
+        System.out.println("Product 2");
+        ProManage goods2 = new ProManage();
+        goods2.promtDetails();
+        goods2.displayDetails();
+        goods2.closeScanner();
     }
 }

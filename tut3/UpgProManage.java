@@ -1,24 +1,24 @@
 package tut3;
 
-import java.util.*;
+// import java.util.*;
 
-public class ProManage {
+public class UpgProManage {
     private String name;
     private double price, discount;
-    private Scanner inp;
-
-    public ProManage() {
-        inp = new Scanner(System.in);
-    }
-
-    public ProManage(String name, double price, double discount) {
+    // private Scanner inp;
+    
+    public UpgProManage(String name, double price, double discount) {
         this.name = name;
         this.price = price;
         this.discount = discount;
-        inp = new Scanner(System.in);
+        // inp = new Scanner(System.in);
     }
 
-    public double calculateImportTax(double price) {
+    public UpgProManage(String name, double price) {
+        this(name, price, 0);
+    }
+
+    private double calculateImportTax(double price) {
         return price * 0.1;
     }
 
@@ -26,6 +26,7 @@ public class ProManage {
         System.out.println(this.toString());
     }
 
+    /*
     public void promtDetails() {
         this.name = promtName();
         this.price = promtPri();
@@ -94,10 +95,10 @@ public class ProManage {
     public void closeScanner() {
         inp.close();
     }
+    */
 
     public String toString() {
         return "Product: [name: " + this.name + ", price: " + this.price + ", discount: " + this.discount
                 + ", tax: " + this.calculateImportTax(price) + "]";
     }
-
 }
