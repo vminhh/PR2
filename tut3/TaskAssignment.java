@@ -36,3 +36,5 @@ public class TaskAssignment {
         return result;
     }
 }
+
+// github.com/vminhh
