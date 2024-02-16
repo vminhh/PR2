@@ -25,7 +25,7 @@ public class Circle {
     }
 
     public double getArea() {
-        return 3.14 * Math.pow(this.radius, 2);
+        return 3.14 * Math.pow(getRadius(), 2);
     }
 
     private boolean isColor(String c) {

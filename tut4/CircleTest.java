@@ -2,7 +2,7 @@ package tut4;
 
 public class CircleTest {
     public static void main(String[] args) {
-        Circle c1 = new Circle(2.0, "lue");
+        Circle c1 = new Circle(2.0, "blue");
         System.out.println(
                 "\tCircle 1:\nRadius = " + c1.getRadius() + "\nColor: " + c1.getColor() + "\nArea = " + c1.getArea());
 

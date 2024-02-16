@@ -28,15 +28,15 @@ public class Rectangle {
     }
 
     public double getArea() {
-        return this.length * this.width;
+        return getLength() * getWidth();
     }
 
     public double getPerimeter() {
-        return 2 * (this.length + this.width);
+        return 2 * (getLength() + getWidth());
     }
 
     public String toString() {
-        return "Rectangle[length = " + this.length +  ", width = " + this.width + "]";
+        return "Rectangle[length = " + getLength() +  ", width = " + getWidth() + "]";
     }
 
     private boolean isValidNum(float n) {

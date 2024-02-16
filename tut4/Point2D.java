@@ -29,6 +29,6 @@ public class Point2D {
     }
 
     public String toString() {
-        return "Point2D [ x = " + this.x + " y = " + this.y + " ]";
+        return "Point2D [ x = " + getX() + " y = " + getY() + " ]";
     }
 }
