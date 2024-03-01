@@ -28,7 +28,8 @@ public class Staff extends Person {
 
     @Override
     public String toString() {
-        return "Staff [Person [name: " + super.getName() + ", address: " + super.getAddress() + ", school: "
-                + getSchool() + ", pay: " + getPay() + "]";
+        return String.format("\"Staff [Person [name: %s, address: %s, school: %s, pay: %.1f]", super.getName(),
+                super.getAddress(), getSchool(), getPay());
+
     }
 }

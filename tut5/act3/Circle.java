@@ -3,6 +3,9 @@ package tut5.act3;
 public class Circle extends Shape {
     protected double radius = 1.0;
 
+    public Circle() {
+    }
+
     public Circle(double radius) {
         this.radius = radius;
     }
@@ -30,6 +33,8 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return "Circle [Shape [color = " + getColor() + ", filled = " + isFilled() + "] " + getRadius() + "]";
+        return String.format("Circle [Shape [Color = %s, filled = %s], radius = %.2f ]", super.getColor(),
+                super.isFilled(),
+                getRadius());
     }
 }

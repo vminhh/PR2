@@ -1,6 +1,6 @@
 package tut5.act1;
 
-public class act1Test {
+public class Main {
     public static void main(String[] args) {
         Person person = new Person("Minh", "Ha Nam");
         Student stu = new Student("minh", "ha nam", "it", 2, 14680000);

@@ -38,7 +38,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student [Person [name: " + super.getName() + ", address: " + super.getAddress() + ", program: "
-                + getProgram() + ", year: " + getYear() + ", fee: " + getFee() + "]";
+        return String.format("\"Student [Person [name: %s, address: %s, program: %s, year: %d, fee: %.1f]",
+                super.getName(), super.getAddress(), getProgram(), getFee());
     }
 }

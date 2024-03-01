@@ -1,6 +1,6 @@
 package tut5.act2;
 
-public class act2Test {
+public class Main {
     public static void main(String[] args) {
         Point A = new Point(1.1f, 1.2f);
         System.out.println("A " + A);

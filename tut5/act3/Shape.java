@@ -17,7 +17,7 @@ public class Shape {
     }
 
     public void setColor(String c) {
-        this.color = c;
+        this.color = isColor(c.toLowerCase()) ? c : null;
     }
 
     public boolean isFilled() {
@@ -30,6 +30,10 @@ public class Shape {
 
     @Override
     public String toString() {
-        return "Shape [color = " + getColor() + ", filled = " + isFilled() + "]";
+        return String.format("Shape [Color = %s, filled = %s ]", getColor(), isFilled());
+    }
+
+    private boolean isColor(String c) {
+        return c.matches("^(red|orange|yellow|green|blue|purple|pink|gray|white|black|grown)$");
     }
 }
