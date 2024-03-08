@@ -1,8 +1,6 @@
 package tut6.act1;
 
 public class Square extends Rectangle {
-    protected double side;
-
     public Square() {
     }
 

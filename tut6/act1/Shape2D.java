@@ -13,9 +13,9 @@ public abstract class Shape2D implements Shape2DCalculation {
     }
 
     public Shape2D(Color c, boolean f, Point2D pos) {
+        this(pos);
         this.color = c;
         this.filled = f;
-        this.position = pos;
     }
 
     public Color getColor() {
