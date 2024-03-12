@@ -20,50 +20,50 @@ public class Student {
     }
 
     public int getStudentID() {
-        if (!validID(studentID)) {
-            throw new IllegalArgumentException("Invalid StduentID!");
-        }
-
         return studentID;
     }
 
     public void setStudentID(int id) {
+        if (!validID(id)) {
+            throw new IllegalArgumentException("Invalid StduentID!");
+        }
+
         this.studentID = id;
     }
 
     public String getName() {
-        if (!validName(name)) {
-            throw new IllegalArgumentException("INvalid name!");
-        }
-
         return name;
     }
 
     public void setName(String n) {
+        if (!validName(n)) {
+            throw new IllegalArgumentException("INvalid name!");
+        }
+
         this.name = n;
     }
 
     public String getDateOfBirth() {
-        if (!validDate(dateOfBirth)) {
-            throw new IllegalArgumentException("Invalid date!");
-        }
-
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String date) {
+        if (!validDate(date)) {
+            throw new IllegalArgumentException("Invalid date!");
+        }
+
         this.dateOfBirth = date;
     }
 
     public double getGPA() {
-        if (!validGPA(gpa)) {
-            throw new IllegalArgumentException("Invalid GPA!");
-        }
-
         return gpa;
     }
 
     public void setGPA(double gpa) {
+        if (!validGPA(gpa)) {
+            throw new IllegalArgumentException("Invalid GPA!");
+        }
+        
         this.gpa = gpa;
     }
 

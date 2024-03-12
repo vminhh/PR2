@@ -20,50 +20,50 @@ public class Course {
     }
 
     public int getCourseID() {
-        if (!validID(courseID)) {
-            throw new IllegalArgumentException("Invald course ID!");
-        }
-
         return courseID;
     }
 
     public void setCourseID(int id) {
+        if (!validID(id)) {
+            throw new IllegalArgumentException("Invald course ID!");
+        }
+
         this.courseID = id;
     }
 
     public String getName() {
-        if (!validName(name)) {
-            throw new IllegalArgumentException("Invalid course name");
-        }
-
         return name;
     }
 
     public void setName(String n) {
+        if (!validName(n)) {
+            throw new IllegalArgumentException("Invalid course name");
+        }
+
         this.name = n;
     }
 
     public String getDescription() {
-        if (!validDescription(description)) {
-            throw new IllegalArgumentException("Content overflow!");
-        }
-
         return description;
     }
 
     public void setDecription(String des) {
+        if (!validDescription(des)) {
+            throw new IllegalArgumentException("Content overflow!");
+        }
+
         this.description = des;
     }
 
     public int getCredit() {
-        if (!validCredit(credit)) {
-            throw new IllegalArgumentException("Invalid credits!");
-        }
-
         return credit;
     }
 
     public void setCredit(int cre) {
+        if (!validCredit(cre)) {
+            throw new IllegalArgumentException("Invalid credits!");
+        }
+
         this.credit = cre;
     }
 
