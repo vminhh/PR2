@@ -5,6 +5,13 @@ public class Person {
     private String phone;
 
     public Person(String name, String phone) {
+        if (!validName(name)) {
+            throw new IllegalArgumentException("Invalid name!");
+        }
+
+        if (!validPhone(phone)) {
+            throw new IllegalArgumentException("Invalid phone number!");
+        }
         this.name = name;
         this.phone = phone;
     }
@@ -26,7 +33,7 @@ public class Person {
     }
 
     public void setPhone(String p) {
-        if (validPhone(p)) {
+        if (!validPhone(p)) {
             throw new IllegalArgumentException("Invalid phone number!");
         }
 

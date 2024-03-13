@@ -13,6 +13,22 @@ public class Student {
     }
 
     public Student(int id, String name, String birth, double gpa) {
+        if (!validID(id)) {
+            throw new IllegalArgumentException("Invalid StduentID!");
+        }
+
+        if (!validName(name)) {
+            throw new IllegalArgumentException("Invalid name!");
+        }
+
+        if (!validDate(birth)) {
+            throw new IllegalArgumentException("Invalid date!");
+        }
+        
+        if (!validGPA(gpa)) {
+            throw new IllegalArgumentException("Invalid GPA!");
+        }
+
         this.studentID = id;
         this.name = name;
         this.dateOfBirth = birth;
@@ -37,7 +53,7 @@ public class Student {
 
     public void setName(String n) {
         if (!validName(n)) {
-            throw new IllegalArgumentException("INvalid name!");
+            throw new IllegalArgumentException("Invalid name!");
         }
 
         this.name = n;
@@ -63,7 +79,7 @@ public class Student {
         if (!validGPA(gpa)) {
             throw new IllegalArgumentException("Invalid GPA!");
         }
-        
+
         this.gpa = gpa;
     }
 
@@ -71,24 +87,25 @@ public class Student {
         return erolledCourse;
     }
 
-    public void enrollInCourse(Course course){
+    public void enrollInCourse(Course course) {
         erolledCourse.add(course);
     }
 
-    public double calculateGPA(){
+    public double calculateGPA() {
         return 0.0;
     }
 
     public void displayStudent() {
+        System.out.println("\tStudent Information\t");
         System.out.println("Student ID: " + getStudentID());
         System.out.println("Name: " + getName());
         System.out.println("Date of Birth: " + getDateOfBirth());
-        System.out.println("GPA: " + getGPA() );
+        System.out.println("GPA: " + getGPA());
         System.out.print("Enrolled Courses: ");
         for (Course course : getErolledCourse()) {
             System.out.print(course.getName() + " ");
         }
-        System.out.println();
+        System.out.println("\n");
     }
 
     /**

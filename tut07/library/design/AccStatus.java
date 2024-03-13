@@ -1,5 +1,5 @@
 package tut07.library.design;
 
-public enum Status {
+public enum AccStatus {
     Active, Disabled, Restricted, Blacklisted, Deleted
 }

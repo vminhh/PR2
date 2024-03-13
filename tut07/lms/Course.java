@@ -13,6 +13,22 @@ public class Course {
     }
 
     public Course(int id, String name, String des, int cre) {
+        if (!validID(id)) {
+            throw new IllegalArgumentException("Invald course ID!");
+        }
+
+        if (!validName(name)) {
+            throw new IllegalArgumentException("Invalid course name!");
+        }
+
+        if (!validDescription(des)) {
+            throw new IllegalArgumentException("Content overflow!");
+        }
+
+        if (!validCredit(cre)) {
+            throw new IllegalArgumentException("Invalid credits!");
+        }
+
         this.courseID = id;
         this.name = name;
         this.description = des;
@@ -37,7 +53,7 @@ public class Course {
 
     public void setName(String n) {
         if (!validName(n)) {
-            throw new IllegalArgumentException("Invalid course name");
+            throw new IllegalArgumentException("Invalid course name!");
         }
 
         this.name = n;
@@ -76,14 +92,16 @@ public class Course {
     }
 
     public void displayCourse() {
+        System.out.println("\tCourse Information\t");
         System.out.println("Course ID: " + getCourseID());
         System.out.println("Name: " + getName());
         System.out.println("Description: " + getDescription());
         System.out.println("Credits: " + getCredit());
+        System.out.println("\n");
     }
 
     /**
-     * @ValidationData
+     * @Validation
      */
     private boolean validID(int id) {
         return id > 1;
