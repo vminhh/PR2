@@ -1,15 +1,15 @@
-package tut07.library.design;
+package tut07.library;
 
 public class Account {
     private String ID;
     private String password;
-    private AccStatus status = AccStatus.Active;
+    private AccountStatus status = AccountStatus.Active;
     private Person person;
 
     public Account() {
     }
 
-    public Account(String id, String pw, AccStatus sta, Person per) {
+    public Account(String id, String pw, AccountStatus sta, Person per) {
         if (!validID(id)) {
             throw new IllegalArgumentException("Invalid ID format!");
         }
@@ -28,9 +28,25 @@ public class Account {
         this.person = per;
     }
 
+    // getter
+
     public String getID() {
         return ID;
     }
+
+    public String getPW() {
+        return password;
+    }
+
+    public AccountStatus getStatus() {
+        return status;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    // setter
 
     public void setID(String id) {
         if (!validID(id)) {
@@ -38,10 +54,6 @@ public class Account {
         }
 
         this.ID = id;
-    }
-
-    public String getPW() {
-        return password;
     }
 
     public void setPW(String pw) {
@@ -52,11 +64,7 @@ public class Account {
         this.password = pw;
     }
 
-    public AccStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(AccStatus sta) {
+    public void setStatus(AccountStatus sta) {
         if (!validStatus(sta)) {
             throw new IllegalArgumentException("Invalid status!");
         }
@@ -64,13 +72,11 @@ public class Account {
         this.status = sta;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
     public void setPerson(Person per) {
         this.person = per;
     }
+
+    // other methods
 
     public boolean login(String id, String pw) {
         return validID(id) && validPW(pw);
@@ -84,9 +90,18 @@ public class Account {
         this.password = newpw;
     }
 
+    public void updateAccountStatus(AccountStatus newStatus) {
+        if (!validStatus(newStatus)) {
+            throw new IllegalArgumentException("Invalid status!");
+        }
+
+        this.status = newStatus;
+    }
+
     /**
      * @Validation
      */
+
     private boolean validID(String id) {
         return id.matches("^[a-zA-Z0-9]+$");
     }
@@ -95,8 +110,8 @@ public class Account {
         return pw.matches("^.{8,}$");
     }
 
-    private boolean validStatus(AccStatus sta) {
-        for (AccStatus i : AccStatus.values()) {
+    private boolean validStatus(AccountStatus sta) {
+        for (AccountStatus i : AccountStatus.values()) {
             if (sta == i)
                 return true;
         }

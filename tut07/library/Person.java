@@ -1,10 +1,11 @@
-package tut07.library.design;
+package tut07.library;
 
 public class Person {
     private String name;
     private String phone;
+    private String email;
 
-    public Person(String name, String phone) {
+    public Person(String name, String phone, String email) {
         if (!validName(name)) {
             throw new IllegalArgumentException("Invalid name!");
         }
@@ -12,8 +13,14 @@ public class Person {
         if (!validPhone(phone)) {
             throw new IllegalArgumentException("Invalid phone number!");
         }
+
+        if (!validEmail(email)) {
+            throw new IllegalArgumentException("Email format : example@gmail.com");
+        }
+
         this.name = name;
         this.phone = phone;
+        this.email = email;
     }
 
     public String getName() {
@@ -40,10 +47,26 @@ public class Person {
         this.phone = p;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void getEmail(String e) {
+        if (!validEmail(e)) {
+            throw new IllegalArgumentException("Email format : example@gmail.com");
+        }
+
+        this.email = e;
+    }
+
     @Override
     public String toString() {
         return String.format("Name: %s, address: %s", getName(), getPhone());
     }
+
+    /**
+     * @Validation
+     */
 
     private boolean validName(String n) {
         return n.matches("^[a-zA-Z\\s]+$");
@@ -51,5 +74,9 @@ public class Person {
 
     private boolean validPhone(String num) {
         return num.matches("^[0-9]+$");
+    }
+
+    private boolean validEmail(String e) {
+        return e.matches("\\w+@\\w+\\.\\w+");
     }
 }

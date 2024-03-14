@@ -1,22 +1,21 @@
-package tut07.library.design;
+package tut07.library;
 
 import java.util.*;
 
 public class Book {
-    private String isbn;
-    private String title;
-    private String subject;
-    private List<String> authors;
-    private List<String> publisher;
+    private String isbn, title, subject;
+    private List<String> authors = new ArrayList<>();
+    private List<String> publisher = new ArrayList<>();
     private String language;
-    private int numberOfPages;
+    private int numberOfPages = 0;
+    private Format format = Format.Newspaper;
 
     public Book() {
     }
 
-    public Book(String isbn, String title, String sub, List<String> auth, List<String> pub, String lang, int num) {
+    public Book(String isbn, String title, String sub, String auth, String pub, String lang, int num) {
         if (!validISBN(isbn)) {
-            throw new IllegalArgumentException("Invalid ISBN!");
+            throw new IllegalArgumentException("ISBN has 13 numbers!");
         }
 
         if (!validLetter(title) || !validLetter(sub) || !validLetter(lang)) {
@@ -34,26 +33,54 @@ public class Book {
         this.isbn = isbn;
         this.title = title;
         this.subject = sub;
-        this.authors = auth;
-        this.publisher = pub;
         this.language = lang;
         this.numberOfPages = num;
+        this.authors.add(auth);
+        this.publisher.add(pub);
     }
+
+    // getter
 
     public String getISBN() {
         return isbn;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public List<String> getPublisher() {
+        return publisher;
+    }
+
+    public String getLang() {
+        return language;
+    }
+
+    public int getNum() {
+        return numberOfPages;
+    }
+
+    public Format getFormat() {
+        return format;
+    }
+
+    // setter
+
     public void setISBN(String isbn) {
         if (!validISBN(isbn)) {
-            throw new IllegalArgumentException("Invalid ISBN!");
+            throw new IllegalArgumentException("ISBN has 13 numbers!");
         }
 
         this.isbn = isbn;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public void setTitle(String t) {
@@ -64,10 +91,6 @@ public class Book {
         this.title = t;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
     public void setSubject(String sub) {
         if (!validLetter(sub)) {
             throw new IllegalArgumentException("Must be letter!");
@@ -76,42 +99,26 @@ public class Book {
         this.subject = sub;
     }
 
-    public List<String> getAuthor() {
-        return authors;
-    }
-
-    public void setAuthor(List<String> a) {
+    public void setAuthor(String a) {
         if (!validName(a)) {
             throw new IllegalArgumentException("Invalid author name!");
         }
 
-        this.authors = a;
+        this.authors.add(a);
     }
 
-    public List<String> getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(List<String> pub) {
+    public void setPublisher(String pub) {
         if (validName(pub)) {
-            throw new IllegalArgumentException("Author name or publisher name invalid!");
+            throw new IllegalArgumentException("Invalid publisher name!");
         }
 
-        this.publisher = pub;
-    }
-
-    public String getLang() {
-        return language;
+        this.publisher.add(pub);
     }
 
     public void setLang(String lang) {
         if (!validLetter(lang)) {
             throw new IllegalArgumentException("Must be letter!");
         }
-    }
-
-    public int getNum() {
-        return numberOfPages;
     }
 
     public void setNum(int n) {
@@ -122,15 +129,34 @@ public class Book {
         this.numberOfPages = n;
     }
 
-    public void display() {
+    public void setFormat(Format f) {
+        if (!validFormat(f)) {
+            throw new IllegalArgumentException("Invalid format!");
+        }
+
+        this.format = f;
+    }
+
+    // display
+
+    public void displayBook() {
         System.out.println("\tBook Information\t");
         System.out.println("ISBN: " + getISBN());
         System.out.println("Title: " + getTitle());
-        System.out.println("Authors: " + getAuthor());
+        System.out.println("Authors: " + getAuthors());
         System.out.println("Publisher: " + getPublisher());
         System.out.println("Language: " + getLang());
         System.out.println("Number of pages: " + getNum());
+        System.out.println("Format: " + getFormat());
         System.out.println();
+    }
+
+    public void addAuthor(String author) {
+        if (!validName(author)) {
+            throw new IllegalArgumentException("Invalid author name!");
+        }
+
+        this.authors.add(author);
     }
 
     /**
@@ -139,11 +165,11 @@ public class Book {
      */
 
     private boolean validISBN(String isdn) {
-        return isdn.matches("\\d{3}-\\d{10|\\d{13}");
+        return isdn.matches("^[0-9]{13}$");
     }
 
-    private boolean validName(List<String> n) {
-        return !n.isEmpty() || n != null;
+    private boolean validName(String n) {
+        return n.matches("^[a-zA-Z0-9-._\\s]+$");
     }
 
     private boolean validLetter(String n) {
@@ -153,4 +179,14 @@ public class Book {
     private boolean validNum(int n) {
         return n > 0;
     }
+
+    private boolean validFormat(Format f) {
+        for (Format i : Format.values()) {
+            if (i == f)
+                return true;
+        }
+
+        return false;
+    }
+    // .................
 }
