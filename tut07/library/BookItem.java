@@ -16,7 +16,7 @@ public class BookItem {
 
     public BookItem(String bar, double pri, Format f, Book book) {
         if (!validBarcode(bar)) {
-            throw new IllegalArgumentException("Barcode form : 123456########");
+            throw new IllegalArgumentException("Barcode has at least 13 character.");
         }
 
         if (!validPri(pri)) {
@@ -71,7 +71,7 @@ public class BookItem {
 
     public void setBarcode(String bar) {
         if (!validBarcode(bar)) {
-            throw new IllegalArgumentException("Barcode form : 123456########");
+            throw new IllegalArgumentException("Barcode has at least 13 character.");
         }
 
         this.barcode = bar;
@@ -124,7 +124,17 @@ public class BookItem {
 
         this.book = book;
     }
-
+    public void displayBookItem() {
+        System.out.println("\tBook Item infor");
+        System.out.println("Barcode: " + getBarcode());
+        System.out.println("Price: $" + getPrice());
+        System.out.println("Format: " + getFormat());
+        System.out.println("Status: " + getStatus());
+        System.out.println("Date of Purchase: " + getDateOfPurchase());
+        System.out.println("Publication Date: " + getPublicationDate());
+        System.out.println();
+    }
+    
     // other methods
 
     public void updateBookItemStatus(BookItemStatus newStatus) {
@@ -140,7 +150,7 @@ public class BookItem {
      */
 
     private boolean validBarcode(String b) {
-        return b.matches("123456\\d{8}");
+        return b.matches("\\d{13}");
     }
 
     private boolean validPri(double p) {

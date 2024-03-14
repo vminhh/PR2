@@ -18,8 +18,8 @@ public class Book {
             throw new IllegalArgumentException("ISBN has 13 numbers!");
         }
 
-        if (!validLetter(title) || !validLetter(sub) || !validLetter(lang)) {
-            throw new IllegalArgumentException("Must be letter!");
+        if (!validContent(title) || !validContent(sub) || !validContent(lang)) {
+            throw new IllegalArgumentException("Invalid content!");
         }
 
         if (!validName(auth) || !validName(pub)) {
@@ -84,16 +84,16 @@ public class Book {
     }
 
     public void setTitle(String t) {
-        if (!validLetter(title)) {
-            throw new IllegalArgumentException("Must be letter!");
+        if (!validContent(title)) {
+            throw new IllegalArgumentException("Invalid content!");
         }
 
         this.title = t;
     }
 
     public void setSubject(String sub) {
-        if (!validLetter(sub)) {
-            throw new IllegalArgumentException("Must be letter!");
+        if (!validContent(sub)) {
+            throw new IllegalArgumentException("Invalid content!");
         }
 
         this.subject = sub;
@@ -116,8 +116,8 @@ public class Book {
     }
 
     public void setLang(String lang) {
-        if (!validLetter(lang)) {
-            throw new IllegalArgumentException("Must be letter!");
+        if (!validContent(lang)) {
+            throw new IllegalArgumentException("Invalid content!");
         }
     }
 
@@ -140,13 +140,14 @@ public class Book {
     // display
 
     public void displayBook() {
-        System.out.println("\tBook Information\t");
-        System.out.println("ISBN: " + getISBN());
+        System.out.println("\tBook Details:");
         System.out.println("Title: " + getTitle());
+        System.out.println("ISBN: " + getISBN());
+        System.out.println("Subject: " + getSubject());
         System.out.println("Authors: " + getAuthors());
         System.out.println("Publisher: " + getPublisher());
         System.out.println("Language: " + getLang());
-        System.out.println("Number of pages: " + getNum());
+        System.out.println("Number of Pages: " + getNum());
         System.out.println("Format: " + getFormat());
         System.out.println();
     }
@@ -169,11 +170,11 @@ public class Book {
     }
 
     private boolean validName(String n) {
-        return n.matches("^[a-zA-Z0-9-._\\s]+$");
+        return n.matches("^[a-zA-Z0-9\\s.,'-]+$");
     }
 
-    private boolean validLetter(String n) {
-        return n.matches("^[a-zA-Z\\s]+$");
+    private boolean validContent(String n) {
+        return n.matches("^[a-zA-Z0-9,.\\s-]+$");
     }
 
     private boolean validNum(int n) {

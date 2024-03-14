@@ -80,6 +80,21 @@ public class BookLending {
         this.status = s;
     }
 
+    // display
+    public void displayBookLending() {
+        System.out.println("\tBook Lending");
+        System.out.println("Creation Date: " + creationDate);
+        System.out.println("Account: " + account);
+        System.out.println("Book Items:");
+        for (BookItem item : bookItems) {
+            System.out.println("  - " + item);
+        }
+        System.out.println("Due Date: " + dueDate);
+        System.out.println("Return Date: " + returnDate);
+        System.out.println("Status: " + status);
+        System.out.println();
+    }
+
     /**
      * @Validation
      */

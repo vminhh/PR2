@@ -9,7 +9,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, String pw, AccountStatus sta, Person per) {
+    public Account(String id, String pw, Person p) {
         if (!validID(id)) {
             throw new IllegalArgumentException("Invalid ID format!");
         }
@@ -18,14 +18,9 @@ public class Account {
             throw new IllegalArgumentException("Invalid password length!");
         }
 
-        if (!validStatus(sta)) {
-            throw new IllegalArgumentException("Invalid status!");
-        }
-
         this.ID = id;
         this.password = pw;
-        this.status = sta;
-        this.person = per;
+        this.person = p;
     }
 
     // getter
@@ -96,6 +91,11 @@ public class Account {
         }
 
         this.status = newStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Account ID: " + getID() + "\nStatus: " + getStatus() + "\nPerson: " + getPerson();
     }
 
     /**

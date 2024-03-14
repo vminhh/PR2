@@ -61,7 +61,6 @@ public class Catalog implements Search {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 System.out.println("Book found : " + book.getTitle());
-                book.displayBook();
             }
         }
     }
@@ -71,7 +70,6 @@ public class Catalog implements Search {
         for (Book book : books) {
             if (book.getAuthors().containsAll(authors)) {
                 System.out.println("Book found : " + book.getTitle());
-                book.displayBook();
             }
         }
     }
@@ -81,7 +79,6 @@ public class Catalog implements Search {
         for (Book book : books) {
             if (book.getSubject().equalsIgnoreCase(subject)) {
                 System.out.println("Book found : " + book.getTitle());
-                book.displayBook();
             }
         }
     }
@@ -91,7 +88,6 @@ public class Catalog implements Search {
         for (Book book : books) {
             if (book.getFormat() == format) {
                 System.out.println("Book found: " + book.getTitle());
-                book.displayBook();
             }
         }
     }

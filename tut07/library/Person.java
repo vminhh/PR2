@@ -51,9 +51,9 @@ public class Person {
         return email;
     }
 
-    public void getEmail(String e) {
+    public void setEmail(String e) {
         if (!validEmail(e)) {
-            throw new IllegalArgumentException("Email format : example@gmail.com");
+            throw new IllegalArgumentException("Email format : example@example.com");
         }
 
         this.email = e;
@@ -61,7 +61,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return String.format("Name: %s, address: %s", getName(), getPhone());
+        return String.format("Name: %s, phone: %s, email: %s", getName(), getPhone(),getEmail());
     }
 
     /**
@@ -77,6 +77,6 @@ public class Person {
     }
 
     private boolean validEmail(String e) {
-        return e.matches("\\w+@\\w+\\.\\w+");
+        return e.matches("^[a-zA-Z0-9._]+@[a-zA-Z]+\\.[a-zA-Z]{2,}$");
     }
 }

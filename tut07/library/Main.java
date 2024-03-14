@@ -1,43 +1,51 @@
 package tut07.library;
 
-import java.time.LocalDate;
-import java.util.Arrays;
+import java.time.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Person test = new Person("Minh", "123456789", "dovanminh253@gmail.com");
+        // test person
+        Person person = new Person("Minh", "0985688467", "dovanminh253@gmail.com");
+        System.out.println(person);
 
-        Book book1 = new Book("1234567890123", "Java Programming", "Programming", "John", "ABC Publications",
-                "English", 300);
-        book1.setFormat(Format.Paperback);
-
+        // test book
+        Book book1 = new Book("9780134685991", "Head First Java, 3rd Edition", "Object-Oriented Programming",
+                "Kathy Sierra", "O'Reilly Media", "Englishh", 720);
+        book1.addAuthor(" Bert Bates");
+        book1.addAuthor("Trisha Gee");
         book1.displayBook();
 
-        book1.addAuthor("Jane Smith");
+        // test book item
+        BookItem bookItem = new BookItem("9876512345123", 25.03, Format.Paperback, book1);
+        bookItem.displayBookItem();
 
-        book1.displayBook();
+        // test booklending
+        BookLending bookLending = new BookLending(LocalDate.now(), new Account("2201040110", "25032004", person),
+                LocalDate.now(), LocalDate.now(), BookItemStatus.Available);
+        bookLending.displayBookLending();
 
-        Person author1 = new Person("Jane Smith", "987654321", "jane.smith@example.com");
-        Person author2 = new Person("Alan Johnson", "456789123", "alan.johnson@example.com");
-
-
-        Book book2 = new Book("9876543210987", "Data Structures and Algorithms", "Computer Science", "Jane",
-                "Publications", "English", 400);
-        book2.setFormat(Format.Hardcover);
-        book2.addAuthor("Alan");
-
+        // test catalog
         Catalog catalog = new Catalog(LocalDate.now());
-
         catalog.addBook(book1);
+        catalog.searchByTitle("Java Programming");
+        catalog.searchBySubject("Object-Oriented Programming");
+
+        // testing more functionality
+        // add more books to the catalog
+        Book book2 = new Book("9780134685991", "Effective Java", "Programming", "Joshua Bloch",
+                "Addison-Wesley Professional", "English", 412);
+        book2.displayBook();
         catalog.addBook(book2);
 
-        System.out.println("Search results for title 'Java Programming':");
-        catalog.searchByTitle("Java Programming");
+        // search by author
+        catalog.searchByAuthor(Arrays.asList("Trisha Gee"));
+        catalog.searchBySubject("Programming");
 
-        System.out.println("\nSearch results for author 'John Doe':");
-        catalog.searchByAuthor(Arrays.asList("John Doe"));
+        // semove a book
+        catalog.removeBook(book1);
 
-        System.out.println("\nSearch results for format 'Paperback':");
+        // search by format
         catalog.searchByFormat(Format.Paperback);
     }
 }
