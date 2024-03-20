@@ -5,7 +5,7 @@ import java.util.*;
 public class Student extends Person {
     private String studentID;
     private double gpa;
-    private List<Course> enrolledCourse = new ArrayList<>();;
+    private List<Course> enrolledCourse = new ArrayList<>();
 
     public Student(int id, String name, String dob, String stdID, double gpa) {
         super(id, name, dob);
