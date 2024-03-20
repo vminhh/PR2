@@ -121,27 +121,27 @@ public class Person {
      * @Validation
      */
 
-    public boolean validID(int id) {
+    private boolean validID(int id) {
         return id > 0;
     }
 
-    public boolean validName(String n) {
+    private boolean validName(String n) {
         return n.matches("^[a-zA-Z\\s]+${50}");
     }
 
-    public boolean validDate(String d) {
+    private boolean validDate(String d) {
         return d.matches("^(0[1-9]|[12][0-9]|3[01])([/-])(0[1-9]|1[0-2])([/-])((19|20)\\d{2})$");
     }
 
-    public boolean validEmail(String e) {
+    private boolean validEmail(String e) {
         return e.matches("^[a-zA-Z0-9._-]+@[a-z]+\\.[a-z]{2,}");
     }
 
-    public boolean validTel(String t) {
+    private boolean validTel(String t) {
         return t.matches("\\d{10}$");
     }
 
-    public boolean validAddress(String a) {
+    private boolean validAddress(String a) {
         return a.matches("^[a-zA-Z0-9._/\\s-]+$");
     }
 }
