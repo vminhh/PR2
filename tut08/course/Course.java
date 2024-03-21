@@ -10,11 +10,11 @@ public class Course implements StudentManageable {
     private List<Student> enrolledStudents = new ArrayList<>();
 
     public Course(String id, String name, int cre, Department dep, Semester sem) {
-        if(!validID(id)){
+        if (!validID(id)) {
             throw new IllegalArgumentException("Invalid ID!");
         }
 
-        if(!validCredits(cre)){
+        if (!validCredits(cre)) {
             throw new IllegalArgumentException("Out of range 1 - 6.");
         }
 
@@ -67,6 +67,13 @@ public class Course implements StudentManageable {
 
     public void setSemester(Semester sem) {
         this.semester = sem;
+    }
+
+    @Override
+    public String toString() {
+        return "Course ID: " + getCourseID() + "\nName: " + getName() + "\nCredits: " + getCredits() + "\nDepartment: "
+                + getDepartment() + "\nSemester: " + getSemester() + "\nList enrolled student: " + getEnrolledStudents()
+                + "\n";
     }
 
     //
@@ -123,5 +130,5 @@ public class Course implements StudentManageable {
         return false;
     }
 
-    //...............................
+    // ...............................
 }

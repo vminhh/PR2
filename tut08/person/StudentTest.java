@@ -34,16 +34,16 @@ public class StudentTest {
         // sort by gpa
         Comparator<Student> comGPA = new Comparator<Student>() {
             @Override
-            public int compare(Student a, Student b){
+            public int compare(Student a, Student b) {
                 return Double.compare(a.getGPA(), b.getGPA());
             }
         };
 
         Collections.sort(students, comGPA);
         System.out.println("Sort by GPA");
-        for(Student student : students){
+        for (Student student : students) {
             System.out.println("Name: " + student.getName() + ", GPA = " + student.getGPA());
         }
-        
+
     }
 }

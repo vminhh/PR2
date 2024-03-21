@@ -1,4 +1,4 @@
-package tut08.course;
+package tut08.lms;
 
 public class Student {
     private String studentID, name, dob;
@@ -62,7 +62,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "id: " + getID() + " Name: " + getName() + " DOB: " + getDOB();
+        return "id: " + getID() + " - Name: " + getName() + " - DOB: " + getDOB();
     }
 
     /*
@@ -70,7 +70,7 @@ public class Student {
      */
 
     private boolean validID(String id) {
-        return id.matches("^[0-9]+${50}");
+        return id.matches("^[a-zA-z0-9]+${50}");
     }
 
     private boolean validName(String n) {
@@ -82,3 +82,4 @@ public class Student {
     }
 
 }
+

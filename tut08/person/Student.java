@@ -59,7 +59,7 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "id: " + super.getId() + "\nName: " + super.getName() + "\nDOB: " + super.getDateOfBirth()
-                + "\nStudent ID: " + getID() + "\nGPA: " + getGPA() + "\nList course: " + getEnrolledCourse() +"\n";
+                + "\nStudent ID: " + getID() + "\nGPA: " + getGPA() + "\nList course: " + getEnrolledCourse() + "\n";
     }
 
     /*
