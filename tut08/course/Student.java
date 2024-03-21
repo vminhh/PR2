@@ -1,7 +1,5 @@
 package tut08.course;
 
-import java.util.*;
-
 public class Student {
     private String studentID, name, dob;
 
@@ -11,7 +9,7 @@ public class Student {
         }
 
         if(!validName(name)){
-            throw new IllegalArgumentException("Invalid name!")
+            throw new IllegalArgumentException("Invalid name!");
         }
         
         if(!validDOB(dob)){
@@ -48,7 +46,7 @@ public class Student {
     public void setName(String n){
 
         if(!validName(name)){
-            throw new IllegalArgumentException("Invalid name!")
+            throw new IllegalArgumentException("Invalid name!");
         }
         
        this.name=n;

@@ -1,5 +1,5 @@
 package tut08.course;
 
-public enum Departmaent {
+public enum Department {
     FIT, FMT, FIS, ESPD,
 }
