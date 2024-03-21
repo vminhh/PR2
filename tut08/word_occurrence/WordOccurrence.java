@@ -41,6 +41,7 @@ public class WordOccurrence {
     // write to ocurrences of word into ouput.txt
     private static void writeWord(String ouputFile, Map<String, Integer> wordCount) {
         try (PrintWriter pwr = new PrintWriter(new File(ouputFile))) {
+
             // get occurences of words then covert to Int Stream and sum them
             int totalWord = wordCount.values().stream().mapToInt(Integer::intValue).sum();
             pwr.println(totalWord);
@@ -50,6 +51,7 @@ public class WordOccurrence {
             }
 
             System.out.println("Completed. Please check your output file!");
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,4 +64,6 @@ public class WordOccurrence {
         return f.exists() && f.isDirectory();
     }
     */
+
+    // chac lam nhu nay thoi
 }
